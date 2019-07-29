@@ -15,11 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::group(['namespace' => 'Web', 'prefix' => 'testing'], function () {
+Route::group(['namespace' => 'Web'], function () {
     Route::resource('teams', 'TeamController');
 
     // * Test Route macros
     Route::get('/teams/{team}/title', function (\App\Team $team) {
         return response()->jTitle($team);
     });
+
+    // Test signed routes
+    Route::get('/teams/{team}/activate', function () {
+        return view('team/activate');
+    })->name('activateTeam')->middleware('signed');
 });

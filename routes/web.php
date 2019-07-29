@@ -28,3 +28,9 @@ Route::group(['namespace' => 'Web'], function () {
         return view('team/activate');
     })->name('activateTeam')->middleware('signed');
 });
+
+// * Default route values
+// - {number?} tham so number la optional
+Route::get('/square/{number?}', function ($number = 10) {
+    return $number * $number;
+});

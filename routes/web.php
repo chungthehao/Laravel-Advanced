@@ -17,4 +17,9 @@ Route::get('/', function () {
 
 Route::namespace('Web')->group(function () {
     Route::resource('teams', 'TeamController');
+
+    // * Test Route macros
+    Route::get('/teams/{team}/title', function (\App\Team $team) {
+        return response()->jTitle($team);
+    });
 });

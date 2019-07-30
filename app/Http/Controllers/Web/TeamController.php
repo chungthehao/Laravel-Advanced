@@ -28,11 +28,21 @@ class TeamController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return Team::paginate();
+        return Team::all()->map(function ($team, $key) {
+            return $team->title;
+        });
+
+        # Use cases
+        // - Displaying items through a grid
+        // - Looping through a large CSV and finding ids or records, you want to chunk the searches in your db
+        /*return Team::all()->chunk(2)->eachSpread(function ($team1, $team2) {
+            dd($team1);
+        });*/
+
+        //return Team::paginate();
     }
 
     /**

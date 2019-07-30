@@ -31,9 +31,28 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return Team::all()->map(function ($team, $key) {
-            return $team->title;
+        // * 'Search' tra ve index cua cai dau tien match voi dieu kien
+        return Team::all()->search(function ($team) {
+            return $team->users_count > 2;
         });
+
+        /*return Team::all()->reject(function ($team) {
+            return $team->users_count > 2;
+        });*/
+
+        /*return Team::all()->filter(function ($team) {
+            return $team->users_count > 2;
+        });*/
+
+        //return Team::all()->firstWhere('users_count', '>', 2);
+
+        //return Team::all()->first(); // Filtering collections, first ele of the collections
+
+        //-----------------------------------------------------------
+
+        /*return Team::all()->map(function ($team, $key) {
+            return $team->title;
+        });*/
 
         # Use cases
         // - Displaying items through a grid
@@ -41,6 +60,8 @@ class TeamController extends Controller
         /*return Team::all()->chunk(2)->eachSpread(function ($team1, $team2) {
             dd($team1);
         });*/
+
+        //-----------------------------------------------------------
 
         //return Team::paginate();
     }

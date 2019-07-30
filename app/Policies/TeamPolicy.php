@@ -40,9 +40,13 @@ class TeamPolicy extends SitePolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(?User $user) // '?User $user': optional type hint
     {
-        return true; // Tuc la ai cung create dc
+        return is_null($user); // logged in -> false (ko cho vo)
+        // super admin (da pass o SitePolicy) + chua login --> cho vo
+
+
+        //return true; // Tuc la ai cung create dc
     }
 
     /**

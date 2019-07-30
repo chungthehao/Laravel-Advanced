@@ -87,4 +87,14 @@ class TeamController extends Controller
     {
         //
     }
+
+    public function points(Team $team)
+    {
+        $sum = $team->where('teams.id', $team->id)
+            ->join('tickets', 'tickets.team_id', '=', 'teams.id')
+            ->join('points', 'points.ticket_id', '=', 'tickets.id')
+            ->sum('points.value');
+
+        return response()->json($sum);
+    }
 }

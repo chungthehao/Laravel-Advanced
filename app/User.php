@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // When we're creating a new model record
+        static::creating(function ($model) {
+            $model->team_id = \DB::table('teams')->inRandomOrder()->first()->id;
+        });
+    }
 }

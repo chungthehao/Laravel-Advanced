@@ -25,6 +25,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // - Custom user guards
+        // - To authenticate using the request
+        \Auth::viaRequest('email', function ($request) {
+            return \App\User::where('email', $request->email)->first();
+        });
+        // Sau do, phai dang ky custom guard nay cua minh o config/auth.php
+
     }
 }

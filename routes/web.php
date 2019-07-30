@@ -33,9 +33,13 @@ Route::group(['namespace' => 'Web'], function () {
 
 // * Default route values
 // - {number?} tham so number la optional
+// - Test custom user guards (o AuthServiceProvider)
 Route::get('/square/{number?}', function ($number = 10) {
     return $number * $number;
-});
+})->middleware('auth:email'); // Use the middleware we defined in config/auth.php  for the 'email' key
+// Phai la: http://homestead.test/square/6?email=henry@chung.io moi vo dc (henry@chung.io la email dang login)
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -46,6 +46,10 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'email' => [
+            'driver' => 'email', // This is the custom user guard in AuthServiceProvider
+            'provider' => 'users', // where we are getting our users information from.
+        ],
     ],
 
     /*

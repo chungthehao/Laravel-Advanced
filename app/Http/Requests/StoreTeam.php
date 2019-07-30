@@ -13,7 +13,9 @@ class StoreTeam extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        //dd($this); // StoreTeam class instance
+        //dd($this->user()); // Current login user instance (instance of User model)
+        return $this->user()->team_id !== null;
     }
 
     /**

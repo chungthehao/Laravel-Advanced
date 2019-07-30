@@ -34,3 +34,6 @@ Route::group(['namespace' => 'Web'], function () {
 Route::get('/square/{number?}', function ($number = 10) {
     return $number * $number;
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

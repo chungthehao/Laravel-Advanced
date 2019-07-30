@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Observers\UserObserver;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,9 +42,12 @@ class User extends Authenticatable
     {
         parent::boot();
 
-        // When we're creating a new model record
-        static::creating(function ($model) {
+        # Eloquent events: quan ly thong qua eloquent observers
+        User::observe(UserObserver::class);
+
+        # When we're creating a new model record
+        /*static::creating(function ($model) {
             $model->team_id = \DB::table('teams')->inRandomOrder()->first()->id;
-        });
+        });*/
     }
 }

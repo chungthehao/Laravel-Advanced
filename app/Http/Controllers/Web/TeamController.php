@@ -31,10 +31,27 @@ class TeamController extends Controller
      */
     public function index()
     {
+        return Team::all()->average('users_count');
+        // return Team::all()->sum('users_count');
+
+        // return Team::all()->reduce(function ($carry, $team) {
+        //     return $carry + $team->users_count;
+        // }, 2); // $carry moi vo co gia tri = 2, neu ko khai bao mac dinh la null
+
+        # Tu 1 collection --> nhóm cái teams.id có cùng users_count
+        /*return Team::all()->mapToGroups(function ($team) {
+            return [$team->users_count => $team->id];
+        });*/
+
+        # Tu 1 collection --> chunk ra từng cụm 2 cái --> hoán đổi --> flat lại như 1 collection ban đầu.
+        // return Team::all()->chunk(2)->mapSpread(function ($team1, $team2) {
+        //     return [$team2, $team1]; // Doi vi tri 2 cai
+        // })->collapse(); // collapse de "un-chunk" no thanh 1 single collection (nhu truoc khi chunk)
+
         // * 'Search' tra ve index cua cai dau tien match voi dieu kien
-        return Team::all()->search(function ($team) {
+        /*return Team::all()->search(function ($team) {
             return $team->users_count > 2;
-        });
+        });*/
 
         /*return Team::all()->reject(function ($team) {
             return $team->users_count > 2;

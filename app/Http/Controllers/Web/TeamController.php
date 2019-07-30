@@ -31,7 +31,21 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return Team::all()->average('users_count');
+        return Team::all()->transform(function ($team) {
+            $team->title = strtoupper($team->title); // Take $team and modify it
+            return $team; // return back to stick it back in the collection
+        });
+
+        //return Team::all()->pluck('title');
+
+        //return Team::all()->take(2);
+
+        //return Team::all()->sortBy('users_count')->values();
+        //return Team::all()->sortBy('users_count');
+
+        // return Team::all()->shuffle();
+
+        // return Team::all()->average('users_count');
         // return Team::all()->sum('users_count');
 
         // return Team::all()->reduce(function ($carry, $team) {

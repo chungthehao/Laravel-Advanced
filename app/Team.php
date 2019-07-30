@@ -15,8 +15,8 @@ class Team extends Model
     }
 
     // Mutator
-    public function setTitleAttribute($title)
+    /*public function setTitleAttribute($title)
     {
         $this->attributes['title'] = \Str::title($title);
-    }
+    }*/
 }

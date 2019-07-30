@@ -20,6 +20,9 @@ class TeamController extends Controller
     public function __construct(\App\Teams\Repository $teams)
     {
         $this->teams = $teams;
+
+        // Dang ky dung policy TeamPolicy
+        $this->authorizeResource(Team::class, 'team');
     }
 
     /**
@@ -103,6 +106,9 @@ class TeamController extends Controller
 
     public function points(Team $team)
     {
+        // Use the policy for the team model & use the view authorization method (TeamPolicy@view)
+        $this->authorize('view', $team);
+
         $sum = $this->teams->points($team);
 
         return response()->json($sum);

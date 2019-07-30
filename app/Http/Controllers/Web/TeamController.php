@@ -9,6 +9,19 @@ use App\Http\Controllers\Controller;
 
 class TeamController extends Controller
 {
+    public $teams;
+
+    /**
+     * # Service Injection
+     * - Isolate logic in a different class that we can reuse across our application
+     * - Makes our instance of the team repository class replaceable at runtime, making this much
+     * easier for us to do any unit testing in this class
+     */
+    public function __construct(\App\Teams\Repository $teams)
+    {
+        $this->teams = $teams;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -90,10 +103,7 @@ class TeamController extends Controller
 
     public function points(Team $team)
     {
-        $sum = $team->where('teams.id', $team->id)
-            ->join('tickets', 'tickets.team_id', '=', 'teams.id')
-            ->join('points', 'points.ticket_id', '=', 'tickets.id')
-            ->sum('points.value');
+        $sum = $this->teams->points($team);
 
         return response()->json($sum);
     }

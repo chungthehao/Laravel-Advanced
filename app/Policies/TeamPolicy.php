@@ -6,7 +6,7 @@ use App\User;
 use App\Team;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TeamPolicy
+class TeamPolicy extends SitePolicy
 {
     use HandlesAuthorization;
     

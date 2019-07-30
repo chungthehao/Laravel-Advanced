@@ -15,7 +15,8 @@ class StoreTeam extends FormRequest
     {
         //dd($this); // StoreTeam class instance
         //dd($this->user()); // Current login user instance (instance of User model)
-        return $this->user()->team_id !== null;
+
+        return true;//$this->user()->team_id !== null;
     }
 
     /**

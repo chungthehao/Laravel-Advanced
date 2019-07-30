@@ -13,4 +13,10 @@ class Team extends Model
     {
         return \DB::table('users')->where('users.team_id', $this->id)->count();
     }
+
+    // Mutator
+    public function setTitleAttribute($title)
+    {
+        $this->attributes['title'] = \Str::title($title);
+    }
 }

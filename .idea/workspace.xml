@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb6fbfb6-56f9-458a-b618-f60f972b3acb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vagrant/machines/lynda-laravel-advanced/virtualbox/action_set_name" beforeDir="false" afterPath="$PROJECT_DIR$/.vagrant/machines/lynda-laravel-advanced/virtualbox/action_set_name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/TeamController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/TeamController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+            <state relative-caret-position="-143">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="e#44#76#0#PHP" expanded="true" />
               </folding>
@@ -327,12 +325,12 @@
       <workItem from="1564389772584" duration="9801000" />
       <workItem from="1564451442063" duration="20997000" />
       <workItem from="1564537447616" duration="510000" />
-      <workItem from="1564624282537" duration="1990000" />
+      <workItem from="1564624282537" duration="3322000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33298000" />
+    <option name="totallyTimeSpent" value="34630000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -362,7 +360,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.25648022" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.34924966" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -640,8 +638,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/TeamController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+        <state relative-caret-position="-143">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="e#44#76#0#PHP" expanded="true" />
           </folding>

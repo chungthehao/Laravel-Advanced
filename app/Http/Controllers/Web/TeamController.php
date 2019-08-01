@@ -31,17 +31,23 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $collection1 = Team::all();
-        $collection2 = $collection1->nth(2);
+        # https://laravel.com/docs/5.8/collections#higher-order-messages
+        return Team::all()->map->getTable();
+        //return Team::all()->each->forceFill(['title' => 'Giong nhau het']);
+        //return Team::all()->sum->users_count;
+
+        # Collections - Diffing
+        //$collection1 = Team::all();
+        //$collection2 = $collection1->nth(2);
         //dd($collection1, $collection2);
         //$collection3a = $collection1->intersect($collection2);
         //$collection3b = $collection2->intersect($collection1);
         //$collection4a = $collection1->diff($collection2); // in 1 not in 2
         //$collection4b = $collection2->diff($collection1); // in 2 not in 1
         //$collection5 = $collection2->concat($collection1); // Nối tiếp coll 2 phía dưới coll 1
-        $collection6 = $collection2->concat($collection1)->unique(); // Nối tiếp coll 2 phía dưới coll 1, dam bao unique
+        //$collection6 = $collection2->concat($collection1)->unique(); // Nối tiếp coll 2 phía dưới coll 1, dam bao unique
         //$collection7 = $collection2->concat($collection1)->unique('created_at');
-        dd($collection6);
+        //dd($collection6);
 
         /*return Team::all()->transform(function ($team) {
             $team->title = strtoupper($team->title); // Take $team and modify it

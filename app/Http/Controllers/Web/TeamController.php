@@ -122,7 +122,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('team.create');
+        return view('team.create')->with('points', 5); // Override view creator
     }
 
     /**

@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // Tác động lên all views (*)
-        View::composer('*', 'App\TeamPointsComposer');
+        View::creator('team/create', 'App\TeamPointsComposer');
+        //View::composer('*', 'App\TeamPointsComposer');
     }
 }

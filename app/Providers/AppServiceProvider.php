@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,5 +28,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('inputtextbox', function ($field) {
             return "<?php echo \App\InputBox::text($field); ?>";
         });
+
+        // Tác động lên all views (*)
+        View::composer('*', 'App\TeamPointsComposer');
     }
 }
